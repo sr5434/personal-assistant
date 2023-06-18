@@ -42,4 +42,18 @@ functions = [{
     },
     "required": ["prompt"],
   },
+  }, {
+  "name": "wolfram_alpha",
+  "description":
+  "This function accesses Wolfram Alpha. Use it when doing any sort of mathematical operation or if you need up to date info.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "The query to send to wolfram alpha."
+      }
+    },
+    "required": ["query"],
+  },
 }]

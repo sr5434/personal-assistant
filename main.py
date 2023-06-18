@@ -3,6 +3,7 @@ import openai
 from news import get_news
 from astros import get_num_astronauts, list_astronauts
 from schema import functions
+from wolfram import call
 
 openai_key = os.environ['OPENAI_KEY']
 
@@ -35,6 +36,9 @@ def execute_function_call(message):
   elif message.get("function_call").get("name") == "generate_image":
     prompt = eval(message["function_call"]["arguments"])["prompt"]
     results = generate_image(prompt)
+  elif message.get("function_call").get("name") == "wolfram_alpha":
+    query = eval(message["function_call"]["arguments"])["query"]
+    results = call(query)
   else:
     results = f"Error: function {message['function_call']['name']} does not exist"
   
