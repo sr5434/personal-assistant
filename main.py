@@ -3,7 +3,6 @@ import openai
 from news import get_news
 from astros import get_num_astronauts, list_astronauts
 from schema import functions
-from doordash import deliver
 
 openai_key = os.environ['OPENAI_KEY']
 
@@ -36,25 +35,6 @@ def execute_function_call(message):
   elif message.get("function_call").get("name") == "generate_image":
     prompt = eval(message["function_call"]["arguments"])["prompt"]
     results = generate_image(prompt)
-  elif message.get("function_call").get("name") == "order_doordash":
-    business_address = eval(message["function_call"]["arguments"])["business_address"]
-    business_phone = eval(message["function_call"]["arguments"])["business_phone"]
-    business_name = eval(message["function_call"]["arguments"])["business_name"]
-    business_instruct = eval(message["function_call"]["arguments"])["business_instruct"]
-    dropoff_addr = eval(message["function_call"]["arguments"])["dropoff_name"]
-    dropoff_name = eval(message["function_call"]["arguments"])["business_address"]
-    dropoff_num = eval(message["function_call"]["arguments"])["dropoff_num"]
-    num = eval(message["function_call"]["arguments"])["num"]
-    dropoff_instruct = eval(message["function_call"]["arguments"])["dropoff_instruct"]
-    results = deliver(business_address,
-            business_name,
-            business_phone,
-            business_instruct,
-            dropoff_addr,
-            dropoff_name,
-            dropoff_num,
-            dropoff_instruct,
-            num)
   else:
     results = f"Error: function {message['function_call']['name']} does not exist"
   
