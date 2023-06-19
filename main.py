@@ -4,6 +4,7 @@ from news import get_news
 from astros import get_num_astronauts, list_astronauts
 from schema import functions
 from wolfram import call
+from weather import get_weather
 
 openai_key = os.environ['OPENAI_KEY']
 
@@ -39,6 +40,9 @@ def execute_function_call(message):
   elif message.get("function_call").get("name") == "wolfram_alpha":
     query = eval(message["function_call"]["arguments"])["query"]
     results = call(query)
+  elif message.get("function_call").get("name") == "weather":
+    city = eval(message["function_call"]["arguments"])["city"]
+    results = get_weather(city)
   else:
     results = f"Error: function {message['function_call']['name']} does not exist"
   

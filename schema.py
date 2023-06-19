@@ -56,4 +56,18 @@ functions = [{
     },
     "required": ["query"],
   },
+}, {
+  "name": "weather",
+  "description":
+  "Get a description of the weather in any city in the world.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "city": {
+        "type": "string",
+        "description": "The city you want information about."
+      }
+    },
+    "required": ["city"],
+  },
 }]
