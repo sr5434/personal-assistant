@@ -58,7 +58,7 @@ messages = [
 while True:
   q = input("User:")
   messages.append({"role": "user", "content": q})
-  response = openai.ChatCompletion.create(model="gpt-3.5-turbo-0613",
+  response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                           messages=messages,
                                           functions=functions)
   msg = response.choices[0].message.content
