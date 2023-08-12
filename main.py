@@ -1,11 +1,11 @@
 """Only for testing on your own computer"""
 import os
 import openai
-from news import get_news
-from astros import get_num_astronauts, list_astronauts
-from schema import functions
-from wolfram import call
-from weather import get_weather
+from api.news import get_news
+from api.astros import get_num_astronauts, list_astronauts
+from api.schema import functions
+from api.wolfram import call
+from api.weather import get_weather
 
 openai_key = os.environ['OPENAI_KEY']
 
