@@ -1,3 +1,4 @@
+"""Only for testing on your own computer"""
 import os
 import openai
 from news import get_news
