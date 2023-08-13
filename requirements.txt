@@ -1,4 +1,3 @@
 openai
 wolframalpha
 flask
-path.py

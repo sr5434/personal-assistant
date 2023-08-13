@@ -1,19 +1,14 @@
 """Only for using the messenger bot"""
 from flask import Flask, request, Response
 import requests, json, random, os
-app = Flask(__name__)
-import os
 import openai
-import path
-import sys
-folder = path.Path(__file__).abspath()
-sys.path.append(folder.parent)
 
 from news import get_news
 from astros import get_num_astronauts, list_astronauts
 from schema import functions
 from wolfram import call
 from weather import get_weather
+app = Flask(__name__)
 
 openai_key = os.environ['OPENAI_KEY']
 
@@ -123,7 +118,6 @@ def webhook_dev():
     )
 
 def handle_message(user_id, user_message):
-    # DO SOMETHING with the user_message ... ¯\_(ツ)_/¯
     prompt = [
         {
             "role": "system",
