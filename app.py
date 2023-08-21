@@ -274,7 +274,7 @@ def handle_message(user_id, user_message):
             "content": "You are a personal assistant. Use functions when necessary."
         },
         {
-            "role": "users",
+            "role": "user",
             "content": user_message
         }
     ]
