@@ -249,6 +249,7 @@ def webhook_action():
         response['message']['text'] = handle_message(user_id, user_message)
         r = requests.post(
             'https://graph.facebook.com/v2.6/me/messages/?access_token=' + access_token, json=response)
+        print(r)
     return Response(response="EVENT RECEIVED",status=200)
 
 @app.route('/webhook_dev', methods=['POST'])
